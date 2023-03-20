@@ -2,7 +2,7 @@
  * @Author: null 1060236395@qq.com
  * @Date: 2023-03-20 16:32:53
  * @LastEditors: null 1060236395@qq.com
- * @LastEditTime: 2023-03-20 17:02:35
+ * @LastEditTime: 2023-03-20 17:36:52
  * @FilePath: \easy-gin-vue-admin\main.go
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -36,10 +36,10 @@ func main() {
 	//5.初始化数据库
 	if global.EGVA_DB != nil {
 		//TODO  读取文件安装文件是否存在，存在，初始化表不执行
-		initialize.RegisterTables() // 初始化表
+		//initialize.RegisterTables() // 初始化表
 		// 程序结束前关闭数据库链接
-		db, _ := global.EGVA_DB.DB()
-		defer db.Close()
+		// db, _ := global.EGVA_DB.DB()
+		// defer db.Close()
 	}
 	//6.初始化Redis
 	initialize.InitRedis()
