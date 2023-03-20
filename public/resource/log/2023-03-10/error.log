@@ -1,0 +1,7 @@
+[github.com/develop-kevin/easy-gin-vue-admin/server]2023/03/10 - 01:31:28.236	[31merror[0m	D:/GoWork/src/github.com/develop-kevin/easy-gin-vue-admin/app/v1/service/sys_captcha.go:39	redis get captcha failed:redis: nil
+[github.com/develop-kevin/easy-gin-vue-admin/server]2023/03/10 - 01:39:52.448	[31merror[0m	D:/GoWork/src/github.com/develop-kevin/easy-gin-vue-admin/app/v1/service/sys_captcha.go:39	redis get captcha failed:redis: nil
+[github.com/develop-kevin/easy-gin-vue-admin/server]2023/03/10 - 01:56:58.214	[31merror[0m	D:/GoWork/src/github.com/develop-kevin/easy-gin-vue-admin/app/v1/service/sys_captcha.go:39	redis get captcha failed:redis: nil
+[github.com/develop-kevin/easy-gin-vue-admin/server]2023/03/10 - 02:09:09.204	[31merror[0m	D:/GoWork/src/github.com/develop-kevin/easy-gin-vue-admin/app/v1/service/sys_captcha.go:39	redis get captcha failed:redis: nil
+[github.com/develop-kevin/easy-gin-vue-admin/server]2023/03/10 - 02:11:07.205	[31merror[0m	D:/GoWork/src/github.com/develop-kevin/easy-gin-vue-admin/app/v1/service/sys_captcha.go:39	redis get captcha failed:redis: nil
+[github.com/develop-kevin/easy-gin-vue-admin/server]2023/03/10 - 02:46:10.506	[31merror[0m	D:/GoWork/src/github.com/develop-kevin/easy-gin-vue-admin/app/v1/service/sys_captcha.go:39	redis get captcha failed:redis: nil
+[github.com/develop-kevin/easy-gin-vue-admin/server]2023/03/10 - 02:51:17.178	[31merror[0m	D:/GoWork/src/github.com/develop-kevin/easy-gin-vue-admin/app/v1/service/sys_captcha.go:39	redis get captcha failed:redis: nil

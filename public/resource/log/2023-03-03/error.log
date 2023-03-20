@@ -1,0 +1,1 @@
+[github.com/develop-kevin/easy-gin-vue-admin]2023/03/03 - 22:12:25.032	[31merror[0m	D:/GoWork/src/github.com/develop-kevin/easy-gin-vue-admin/initialize/db.go:79	register table failed	{"error": "Error 1146 (42S02): Table 'easy_gin_vue_admin.sys_groups' doesn't exist"}

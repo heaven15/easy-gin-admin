@@ -1,0 +1,42 @@
+System:
+  port: 7001
+  db_type: MySQL
+
+# zap logger configuration
+Zap:
+  level: info
+  format: console
+  prefix: "[github.com/develop-kevin/easy-gin-vue-admin/server]"
+  director: public/resource/log
+  show_line: true
+  encode_level: LowercaseColorLevelEncoder
+  stacktrace_key: stacktrace
+  log_in_console: true
+
+Redis:
+  host: 127.0.0.1
+  port: 6379
+  database: 0
+  password: 
+
+GormDB:
+  host: 127.0.0.1
+  port: 3306
+  config: charset=utf8mb4&parseTime=True&loc=Local
+  username: root
+  password: root
+  database: easy_gin_vue_admin
+  prefix:
+  singular:
+  engine:
+  max_idle_cons: 10
+  max_open_cons: 100
+  log_mode:
+  log_zap:
+    
+# jwt configuration
+JWT:
+  secret_key: 1aR6Prap3QuLPuFERWkaio6MvhlK8BjU
+  expires_time: 7000d
+  buffer_time: 1d
+  issuer: kevin
