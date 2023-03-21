@@ -2,6 +2,7 @@ package admin
 
 import (
 	"fmt"
+
 	"github.com/develop-kevin/easy-gin-vue-admin/app/v1/dto"
 	"github.com/develop-kevin/easy-gin-vue-admin/app/v1/model"
 	"github.com/develop-kevin/easy-gin-vue-admin/app/v1/service"
@@ -29,40 +30,26 @@ func (s *SysAuthController) Login(ctx *gin.Context) {
 	}
 	var err error
 	//判断验证码
-	if !store.Verify(request.CaptchaId, request.Code, true) {
+	if !store.Verify(request.VerifyKey, request.VerifyCode, true) {
 		utils.FailWithMessage("CaptchaCodeError", ctx)
 		return
 	}
 	data := &model.SysUser{}
 	token := &vo.AccessTokenVo{}
-	if request.LoginType == "username" {
-		//处理用户名
-		m := model.SysUser{
-			UserName: request.UserName,
-			PassWord: request.PassWord,
-			Ip:       ctx.ClientIP(),
-		}
-		data, err = s.SysUserService.QueryName(&m)
-		if err != nil {
-			utils.FailWithMessage(err.Error(), ctx)
-			return
-		}
-		if ok := utils.BcryptCheck(fmt.Sprintf("%s%s", request.PassWord, data.Salt), data.PassWord); !ok {
-			utils.FailWithMessage("SysUserPassWordError", ctx)
-			return
-		}
+	//处理用户名
+	m := model.SysUser{
+		UserName: request.UserName,
+		PassWord: request.PassWord,
+		Ip:       ctx.ClientIP(),
 	}
-	if request.LoginType == "mobile" {
-		//短信验证码校验
-		m := model.SysUser{
-			Mobile: request.Mobile,
-			Ip:     ctx.ClientIP(),
-		}
-		data, err = s.SysUserService.QueryMobile(&m)
-		if err != nil {
-			utils.FailWithMessage(err.Error(), ctx)
-			return
-		}
+	data, err = s.SysUserService.QueryName(&m)
+	if err != nil {
+		utils.FailWithMessage(err.Error(), ctx)
+		return
+	}
+	if ok := utils.BcryptCheck(fmt.Sprintf("%s%s", request.PassWord, data.Salt), data.PassWord); !ok {
+		utils.FailWithMessage("SysUserPassWordError", ctx)
+		return
 	}
 	if data.Status == 2 {
 		utils.FailWithMessage("SysUserAccountIsDisabled", ctx)

@@ -40,12 +40,12 @@ type SysUserPassWordReq struct {
 }
 
 type SysUserLoginReq struct {
-	UserName  string `json:"username" binding:"required,min=2,max=30" label:"用户名"` // 用户名
-	Mobile    string `json:"mobile" binding:"omitempty,len=11,mobile" label:"用户手机号"`
-	PassWord  string `json:"password" binding:"required,min=5,max=30" label:"密码"` // 密码
-	LoginType string `json:"login_type" binding:"required" label:"登录方式"`          // 登录方式
-	CaptchaId string `json:"captcha_id" binding:"required" label:"验证码ID"`
-	Code      string `json:"code"  binding:"required" label:"验证码"`
+	UserName string `json:"username" binding:"required,min=2,max=30" label:"用户名"` // 用户名
+	// Mobile    string `json:"mobile" binding:"omitempty,len=11,mobile" label:"用户手机号"`
+	PassWord string `json:"password" binding:"required,min=5,max=30" label:"密码"` // 密码
+	// LoginType string `json:"login_type" binding:"required" label:"登录方式"`          // 登录方式
+	VerifyKey  string `json:"verify_key" binding:"required" label:"验证码KEY"`
+	VerifyCode string `json:"verify_code"  binding:"required" label:"验证码"`
 }
 
 type SysUserRegisterReq struct {
