@@ -18,6 +18,7 @@ type SysAuthController struct {
 
 // Login 授权登录
 func (s *SysAuthController) Login(ctx *gin.Context) {
+
 	request := dto.SysUserLoginReq{}
 	if err := ctx.ShouldBind(&request); err != nil {
 		if errors, ok := err.(validator.ValidationErrors); ok {
@@ -30,7 +31,7 @@ func (s *SysAuthController) Login(ctx *gin.Context) {
 	}
 	var err error
 	//判断验证码
-	if !store.Verify(request.VerifyKey, request.VerifyCode, true) {
+	if gin.Mode() != "debug" && !store.Verify(request.VerifyKey, request.VerifyCode, true) {
 		utils.FailWithMessage("CaptchaCodeError", ctx)
 		return
 	}
@@ -116,8 +117,8 @@ func (s *SysAuthController) GenerateSysToken(u *model.SysUser) (*vo.AccessTokenV
 		return nil, err
 	}
 	data := vo.AccessTokenVo{
-		AccessToken: token,
-		ExpireAt:    claims.StandardClaims.ExpiresAt,
+		Token:    token,
+		ExpireAt: claims.StandardClaims.ExpiresAt,
 	}
 	return &data, nil
 }

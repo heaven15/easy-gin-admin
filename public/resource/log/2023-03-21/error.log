@@ -1,0 +1,2 @@
+[github.com/develop-kevin/easy-gin-vue-admin/server]2023/03/21 - 15:02:48.569	[31merror[0m	E:/go-www/easy-gin-vue-admin/app/v1/service/sys_captcha.go:39	redis get captcha failed:redis: nil
+[github.com/develop-kevin/easy-gin-vue-admin/server]2023/03/21 - 15:03:33.028	[31merror[0m	E:/go-www/easy-gin-vue-admin/app/v1/service/sys_captcha.go:39	redis get captcha failed:redis: nil
