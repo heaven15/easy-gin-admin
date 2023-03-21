@@ -2,16 +2,14 @@
  * @Author: null 1060236395@qq.com
  * @Date: 2023-03-20 16:32:53
  * @LastEditors: null 1060236395@qq.com
- * @LastEditTime: 2023-03-20 18:09:31
+ * @LastEditTime: 2023-03-21 12:31:27
  * @FilePath: \easy-gin-vue-admin\utils\response.go
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
 package utils
 
 import (
-	"fmt"
 	"net/http"
-	"strings"
 
 	"github.com/develop-kevin/easy-gin-vue-admin/global"
 	ginI18n "github.com/gin-contrib/i18n"
@@ -34,12 +32,7 @@ type Response struct {
 func Result(code int, data interface{}, msg string, ctx *gin.Context) {
 	msgI18n := ""
 	if msg != "" {
-		str := strings.Split(msg, "_")
-		if len(str) == 1 {
-			msgI18n = str[0]
-		} else {
-			msgI18n = fmt.Sprintf(str[0], str[1])
-		}
+		msgI18n = msg
 	} else {
 		msgI18n = ginI18n.MustGetMessage("DataIsUndefined")
 	}
@@ -80,7 +73,7 @@ func Fail(ctx *gin.Context) {
 
 // FailWithMessage 失败信息
 func FailWithMessage(message string, ctx *gin.Context) {
-	Result(ERROR, map[string]interface{}{}, message, ctx)
+	Result(ERROR, map[string]interface{}{}, ginI18n.MustGetMessage(message), ctx)
 	ctx.Abort()
 }
 
